@@ -1,0 +1,22 @@
+{
+  "name": "servicecrud",
+  "version": "1.0.0",
+  "description": "Service CRUD biodata mahasiswa dengan Express.js dan PostgreSQL",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "express",
+    "postgresql",
+    "crud"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}
