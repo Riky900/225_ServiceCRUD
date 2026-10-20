@@ -157,3 +157,13 @@ app.listen(port, () => {
             res.status(500).json({ message: 'Internal Server Error' })
         })
 })
+
+   // GET jumlah data
+   app.get('/jumlah', (req, res) => {
+    pool.query('SELECT COUNT(*)::int AS total FROM biodata')
+        .then(result => res.json(result.rows[0]))
+        .catch(err => {
+            console.error(err)
+            res.status(500).json({ message: 'Internal Server Error' })
+        })
+})
