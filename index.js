@@ -177,3 +177,8 @@ app.listen(port, () => {
             res.status(500).json({ status: 'error', database: 'tidak terhubung' })
         })
 })
+
+   // 404 untuk route yang tidak dikenal
+   app.use((req, res) => {
+    res.status(404).json({ message: 'Route tidak ditemukan' })
+})
