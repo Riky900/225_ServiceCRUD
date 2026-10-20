@@ -147,3 +147,13 @@ app.delete('/biodata/:id', async (req, res) => {
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })
+
+   // GET berdasarkan kelas
+   app.get('/biodata/kelas/:kelas', (req, res) => {
+    pool.query('SELECT * FROM biodata WHERE kelas ILIKE $1 ORDER BY id', [req.params.kelas])
+        .then(result => res.json(result.rows))
+        .catch(err => {
+            console.error(err)
+            res.status(500).json({ message: 'Internal Server Error' })
+        })
+})
