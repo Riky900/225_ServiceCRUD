@@ -167,3 +167,13 @@ app.listen(port, () => {
             res.status(500).json({ message: 'Internal Server Error' })
         })
 })
+
+   // Cek koneksi ke database
+   app.get('/health', (req, res) => {
+    pool.query('SELECT 1')
+        .then(() => res.json({ status: 'ok', database: 'terhubung' }))
+        .catch(err => {
+            console.error(err)
+            res.status(500).json({ status: 'error', database: 'tidak terhubung' })
+        })
+})
