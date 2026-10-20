@@ -7,6 +7,11 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+   // Log setiap request yang masuk
+   app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`)
+    next()
+})
 
 // Koneksi ke PostgreSQL (sesuaikan dengan database masing-masing)
 const pool = new Pool({
